@@ -1,0 +1,18 @@
+Thus, this is a more challenging task for future investigation that arises 
+from Chapter 7. On the other hand, here the periodic jitter at a single 
+frequency was considered. But in practice, the ToF cameras may have periodic 
+jitter at multiple frequencies. Then, it is very interesting to know how
+the analytical model will change accordingly. Will the influence be linear or
+non linear and will it be partially or fully cancel on range measurements? So,
+some interesting questions arise from this future investigation.
+A finite number of evaluations of the Monte Carlo simulation were used to
+investigate the influence of random jitter on range measurements in Chapter 8. 
+With increasing the number of simulations, it is surprisingly effective to estimate
+the better result than the current one. In order to understand the
+impact of uncertainty of the results obtained, it is necessary to analyse the
+stochastic model for the full range of possible outcomes, to get much more
+accurate results. On the other hand, all simulations were done at fixed integration
+period T = 1 ms and it is interesting to investigate the behaviour of the
+random jitter for various T, especially for less than 1 ms integration period
+since now the depth sensor manufacturers are trying to develop the AMCW
+ToF cameras with short integration periods.
