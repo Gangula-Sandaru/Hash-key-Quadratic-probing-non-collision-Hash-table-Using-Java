@@ -5,7 +5,7 @@ public class writeFile {
 
     void fileWriter(String text) {
         try {
-            FileWriter writer = new FileWriter("output.txt");
+            FileWriter writer = new FileWriter("wordsHK7.txt");
             writer.write(text);
             writer.close();
             System.out.println("Text has been written to the file.");
