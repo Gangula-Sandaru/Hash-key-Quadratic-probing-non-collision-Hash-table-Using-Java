@@ -4,23 +4,20 @@ class DataModifiers {
     String[] stringRemover(String text){
         String stringRm;
         // store split data in the list form
-        String[] modifiedDataList, finalList = new String[];
-        int count = 0;
-
-        stringRm = text.replaceAll("[^a-zA-Z]"," ");
+        String[] modifiedDataList;
+        // replace with white space , remove special characters , numbers using regular expression
+        stringRm = text.replaceAll("[^a-zA-Z]+"," ");
 
         // split the words
         modifiedDataList = stringRm.split(" ");
 
         for(int i = 0; i <= (modifiedDataList.length) - 1; i++){
-            if(!modifiedDataList[i].equals(" ")){
-                finalList[count] = modifiedDataList[i];
-                count++;
-            }
+            //remove new line of the string
+            modifiedDataList[i] = modifiedDataList[i].replaceAll("[\\s+]", "");
         }
-
-        return finalList;
+        return modifiedDataList;
     }
+
 
     // similar word catcher
     String wordCatcher(String word_list){
