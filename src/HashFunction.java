@@ -2,6 +2,8 @@ import java.util.HashMap;
 
 class HashFunction {
     private String[] word;
+    private String writableTxt = "Index\t| Character\t| Hash Key\n";;
+    writeFile obj = new writeFile();
 
     HashFunction(String[] words){
         this.word = words;
@@ -36,9 +38,13 @@ class HashFunction {
 //                System.out.print(tmpChar + ",");
                 hashKey +=  englishAlphaList.get(tmpChar);
             }
-            System.out.println(i +"  word: " + tmpWord + " Key: " + hashKey);
-            System.out.print("\n"); // print space after each word
+//            System.out.println(i +"  word: " + tmpWord + " Key: " + hashKey + "\n");
+//            System.out.print("\n"); // print space after each word
+
+            writableTxt += String.format("%-7d\t| %-10s\t| %-7d\n", i, tmpWord, hashKey);
+
         }
+        obj.fileWriter(writableTxt);
     }
 
 }
