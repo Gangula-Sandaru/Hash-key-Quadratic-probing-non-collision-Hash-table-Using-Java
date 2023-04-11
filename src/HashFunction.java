@@ -33,10 +33,10 @@ class HashFunction {
             int hashKey = 0;
             for(int j = 0; j < tmpWord.length(); j++){
                 char tmpChar = tmpWord.charAt(j);
-                System.out.print(tmpChar + ",");
+//                System.out.print(tmpChar + ",");
                 hashKey +=  englishAlphaList.get(tmpChar);
             }
-            System.out.println("word: " + tmpWord + " Key: " + hashKey);
+            System.out.println(i +"  word: " + tmpWord + " Key: " + hashKey);
             System.out.print("\n"); // print space after each word
         }
     }

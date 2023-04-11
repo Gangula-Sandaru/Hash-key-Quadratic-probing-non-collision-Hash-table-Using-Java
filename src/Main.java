@@ -7,7 +7,7 @@ public class Main {
 
 
         // create file reader obj and pass the path
-        FileReader reader = new FileReader("K:/Computer Science (My life)/My Work Station/DSA-Mini project/src/file2.txt");
+        FileReader reader = new FileReader("K:/Computer Science (My life)/My Work Station/DSA-Mini project/src/file7.txt");
         //create Data modifiers obj
         DataModifiers modifiers = new DataModifiers();
 

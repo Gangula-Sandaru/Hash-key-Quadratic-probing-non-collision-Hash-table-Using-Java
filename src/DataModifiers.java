@@ -14,15 +14,17 @@ class DataModifiers {
         for(int i = 0; i <= (modifiedDataList.length) - 1; i++){
             //remove new line of the string
             modifiedDataList[i] = modifiedDataList[i].replaceAll("[\\s+]", "");
+
         }
         return modifiedDataList;
     }
 
 
-    // similar word catcher
-    String wordCatcher(String word_list){
-
-        System.out.println("hi");
-        return null;
-    }
+//    // similar word catcher
+//    String[] wordCatcher(String[] word_list){
+//        System.out.println("3");
+////        for(int i = 0; i <= word_list.length; i++){
+////            if(word_list[i].contains())
+////        }
+//    }
 }
