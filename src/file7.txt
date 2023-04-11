@@ -1,4 +1,4 @@
-Thus, this is a more challenging task for future investigation that arises 
+Thus, this is a more challenging task for future investigation that arises
 from Chapter 7. On the other hand, here the periodic jitter at a single 
 frequency was considered. But in practice, the ToF cameras may have periodic 
 jitter at multiple frequencies. Then, it is very interesting to know how

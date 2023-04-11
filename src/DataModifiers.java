@@ -1,24 +1,43 @@
+import java.util.Arrays;
+
 class DataModifiers {
 
     // special and number remover function.
-    String[] stringRemover(String text){
+    String[] stringRemover(String text) {
+        // todo ignore the case. fix this
         String stringRm;
         // store split data in the list form
         String[] modifiedDataList;
         // replace with white space , remove special characters , numbers using regular expression
-        stringRm = text.replaceAll("[^a-zA-Z]+"," ");
+        stringRm = text.replaceAll("[^a-zA-Z]+", " ");
 
         // split the words
         modifiedDataList = stringRm.split(" ");
 
-        for(int i = 0; i <= (modifiedDataList.length) - 1; i++){
-            //remove new line of the string
-            modifiedDataList[i] = modifiedDataList[i].replaceAll("[\\s+]", "");
+        String[] uniqueDataList = new String[modifiedDataList.length];
+        int uniqueDataCount = 0;
+        boolean[] seen = new boolean[modifiedDataList.length];
 
+        for (int i = 0; i < modifiedDataList.length; i++) {
+            String currentWord = modifiedDataList[i].replaceAll("[\\s+]", "");
+
+            if (!seen[i]) {
+                uniqueDataList[uniqueDataCount++] = currentWord;
+                seen[i] = true;
+            }
+
+            for (int j = i + 1; j < modifiedDataList.length; j++) {
+                if (!seen[j] && currentWord.equalsIgnoreCase(modifiedDataList[j].replaceAll("[\\s+]", ""))) {
+                    seen[j] = true;
+                }
+            }
         }
-        return modifiedDataList;
-    }
 
+        // Trim the uniqueDataList to remove null elements
+        uniqueDataList = Arrays.copyOf(uniqueDataList, uniqueDataCount);
+
+        return uniqueDataList;
+    }
 
 //    // similar word catcher
 //    String[] wordCatcher(String[] word_list){
