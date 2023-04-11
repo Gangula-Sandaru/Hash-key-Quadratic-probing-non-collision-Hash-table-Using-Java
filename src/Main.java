@@ -1,38 +1,19 @@
-import java.io.File;
-import java.io.IOError;
-import java.io.IOException;
-import java.util.Scanner;
 
 public class Main {
-
-    // special and number remover function.
-    public String stringRemover(String text){
-        String stringRm;
-        stringRm = text.replaceAll("[^a-zA-Z]","");
-        return stringRm;
-    }
-
     public static void main(String[] args){
-        Main obj = new Main();
-        // store file data
-        String file_data = "";
+        // store modified data
+        String modifiedData;
 
-        // reading the file
-        File reading_file = new File("K:/Computer Science (My life)/My Work Station/DSA-Mini project/src/file7.txt");
+        // create file reader obj and pass the path
+        FileReader reader = new FileReader("K:/Computer Science (My life)/My Work Station/DSA-Mini project/src/file7.txt");
+        //create Data modifiers obj
+        DataModifiers modifiers = new DataModifiers();
 
-        // catch if there is no file.
-        try{
-            Scanner scan = new Scanner(reading_file);
-            // reading the whole file line by line
-            while(scan.hasNextLine()){
-                file_data = file_data.concat(scan.nextLine() + "\n");
-            }
+        // read the file and remove the special and number characters then store it in the modified data variable
+        modifiedData = modifiers.stringRemover(reader.Read_file());
 
-        }catch (IOException e){
-            System.out.println("File not fund!");
-        }
+        System.out.println(modifiedData);
 
-        // print the file data
-        System.out.println(obj.stringRemover(file_data));
+
     }
 }
