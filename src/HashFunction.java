@@ -26,9 +26,9 @@ class HashFunction {
         }
 
 
-        for(char c : englishAlphaList.keySet()) {
-            System.out.println(c + " = " + englishAlphaList.get(c));
-        }
+//        for(char c : englishAlphaList.keySet()) {
+//            System.out.println(c + " = " + englishAlphaList.get(c));
+//        }
 
         for(int i = 0; i < this.word.length; i++){
             String tmpWord = word[i];
@@ -42,9 +42,19 @@ class HashFunction {
 //            System.out.print("\n"); // print space after each word
 
             writableTxt += String.format("%-7d\t| %-10s\t| %-7d\n", i, tmpWord, hashKey);
+            quadraticHashFunction(tmpWord,hashKey,i, word.length);
 
         }
         obj.fileWriter(writableTxt);
     }
 
+    private void quadraticHashFunction(String word, int hashKey, int i, int tableSize){
+        int quadraticHashKey, probes;
+        final int c1 = 1, c2 = 1, c3 = 0;
+
+         probes = (c1 * i * i) + (c2 * i) + c3;
+         quadraticHashKey = (hashKey + probes) % tableSize;
+
+         System.out.println("Q key: " + quadraticHashKey);
+    }
 }
