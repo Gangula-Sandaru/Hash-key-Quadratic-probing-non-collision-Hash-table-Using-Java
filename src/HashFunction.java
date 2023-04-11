@@ -2,7 +2,8 @@ import java.util.HashMap;
 
 class HashFunction {
     private String[] word;
-    private String writableTxt = "Index\t| Character\t| Hash Key\n";;
+    private String writableTxt = "Index\t| Character\t| Hash Key\n";
+    private String writableTxtQKey = "Index\t| Character\t| Hash Key\t | New Hash Key \t | Q Hash Key \n";
     writeFile obj = new writeFile();
 
     HashFunction(String[] words){
@@ -55,6 +56,9 @@ class HashFunction {
          probes = (c1 * i * i) + (c2 * i) + c3;
          quadraticHashKey = (hashKey + probes) % tableSize;
 
-         System.out.println("Q key: " + quadraticHashKey);
+         writableTxtQKey += String.format("%-7d\t| %-10s\t| %-7d\t | %-7d\t| %-10s\n", i, word, hashKey, probes,quadraticHashKey);
+
+//         System.out.println(i + " hash key " + hashKey + "  Q key: " + quadraticHashKey);
+        System.out.println(writableTxtQKey);
     }
 }
