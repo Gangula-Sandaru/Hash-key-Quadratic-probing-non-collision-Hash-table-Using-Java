@@ -10,6 +10,7 @@ class DataModifiers {
     // similar word catcher
     String wordCatcher(String word_list){
 
-         System.out.println("hi");
+        System.out.println("hi");
+        return null;
     }
 }
