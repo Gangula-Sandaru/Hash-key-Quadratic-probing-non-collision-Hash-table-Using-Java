@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 class FileReader {
     private String path = "";
-    // constructor
+    // constructorscnz
     FileReader(String path){
         this.path = path;
     }

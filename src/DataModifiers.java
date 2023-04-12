@@ -22,12 +22,4 @@ class DataModifiers {
         return uniqueWords.toArray(new String[uniqueWords.size()]);
     }
 
-
-//    // similar word catcher
-//    String[] wordCatcher(String[] word_list){
-//        System.out.println("3");
-////        for(int i = 0; i <= word_list.length; i++){
-////            if(word_list[i].contains())
-////        }
-//    }
 }

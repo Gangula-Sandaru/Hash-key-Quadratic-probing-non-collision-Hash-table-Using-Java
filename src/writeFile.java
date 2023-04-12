@@ -3,9 +3,9 @@ import java.io.IOException;
 
 public class writeFile {
 
-    void fileWriter(String text) {
+    void fileWriter(String text, String path) {
         try {
-            FileWriter writer = new FileWriter("wordsHK7.txt");
+            FileWriter writer = new FileWriter(path + ".txt");
             writer.write(text);
             writer.close();
             System.out.println("Text has been written to the file.");
