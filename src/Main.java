@@ -19,10 +19,5 @@ public class Main {
 
         hash_f.hashKey();
 
-//        for(int i = 0; i <= (modifiedData.length) -1 ; i++){
-//            System.out.println(modifiedData[i]);
-//        }
-//        System.out.println(Arrays.toString(modifiedData));
-
     }
 }

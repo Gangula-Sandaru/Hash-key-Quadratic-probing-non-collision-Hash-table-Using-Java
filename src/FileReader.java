@@ -4,12 +4,10 @@ import java.util.Scanner;
 
 class FileReader {
     private String path = "";
-    // constructor
+    // constructorscnz
     FileReader(String path){
         this.path = path;
     }
-
-
     String Read_file() {
         // store file data
         String file_data = "";

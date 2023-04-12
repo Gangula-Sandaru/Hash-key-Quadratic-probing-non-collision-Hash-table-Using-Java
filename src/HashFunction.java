@@ -1,14 +1,17 @@
+import java.util.Arrays;
 import java.util.HashMap;
 
 class HashFunction {
     private String[] word;
-    private String writableTxt = "Index\t| Character\t| Hash Key\n";;
+    private String writableTxt = "Index\t| Character\t| Hash Key\n";
+    private String writableTxtLine = "Index\t| Words\n";
+    private String writableTxtQKey = "Index\t| Character\t| Hash Key\t | New Hash Key \t | Q Hash Key \n";
+    int quadraticHashKey, probes;
     writeFile obj = new writeFile();
 
     HashFunction(String[] words){
         this.word = words;
     }
-
     void hashKey(){
         // Create a new HashMap to store the alphabet characters
         HashMap<Character, Integer> englishAlphaList = new HashMap<Character, Integer>();
@@ -24,12 +27,6 @@ class HashFunction {
             englishAlphaList.put(c, count);
             count++;
         }
-
-
-        for(char c : englishAlphaList.keySet()) {
-            System.out.println(c + " = " + englishAlphaList.get(c));
-        }
-
         for(int i = 0; i < this.word.length; i++){
             String tmpWord = word[i];
             int hashKey = 0;
@@ -38,13 +35,22 @@ class HashFunction {
 //                System.out.print(tmpChar + ",");
                 hashKey +=  englishAlphaList.get(tmpChar);
             }
-//            System.out.println(i +"  word: " + tmpWord + " Key: " + hashKey + "\n");
-//            System.out.print("\n"); // print space after each word
 
             writableTxt += String.format("%-7d\t| %-10s\t| %-7d\n", i, tmpWord, hashKey);
 
-        }
-        obj.fileWriter(writableTxt);
-    }
+            writableTxtLine +=  String.format("%-7d\t| %-7s\n", i, tmpWord);
+            // second task
+            final int c1 = 1, c2 = 1, c3 = 0;
 
+
+             probes = (c1 * i * i) + (c2 * i) + c3;
+             quadraticHashKey = (hashKey + probes) % word.length;
+
+             writableTxtQKey += String.format("%-7d\t| %-10s\t| %-7d\t | %-7d\t| %-10s\n", i,word[i], hashKey, probes,quadraticHashKey);
+        }
+        obj.fileWriter(writableTxt, "wordsHK7"); // first task
+        obj.fileWriter(writableTxtQKey, "wordsQHK7"); // second task
+        obj.fileWriter(writableTxtLine, "nonCollisionHashTable"); // third task
+
+    }
 }
