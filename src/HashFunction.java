@@ -4,6 +4,7 @@ import java.util.HashMap;
 class HashFunction {
     private String[] word;
     private String writableTxt = "Index\t| Character\t| Hash Key\n";
+    private String writableTxtLine = "Index\t| Words\n";
     private String writableTxtQKey = "Index\t| Character\t| Hash Key\t | New Hash Key \t | Q Hash Key \n";
     int quadraticHashKey, probes;
     writeFile obj = new writeFile();
@@ -54,11 +55,19 @@ class HashFunction {
 
              writableTxtQKey += String.format("%-7d\t| %-10s\t| %-7d\t | %-7d\t| %-10s\n", i,word[i], hashKey, probes,quadraticHashKey);
 
+             writableTxtLine +=  String.format("%-7d\t| %-7d\n", i, tmpWord);
+
+
         }
         obj.fileWriter(writableTxt, "wordsHK7");
         obj.fileWriter(writableTxtQKey, "wordsQHK7");
+        obj.fileWriter(writableTxtQKey, "nonCollisionHashTable");
+
+
+
         System.out.println(writableTxtQKey);
         System.out.println(writableTxt);
     }
+
 
 }
