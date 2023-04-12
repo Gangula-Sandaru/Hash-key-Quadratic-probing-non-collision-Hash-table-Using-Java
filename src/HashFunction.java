@@ -65,8 +65,8 @@ class HashFunction {
 
 
 
-        System.out.println(writableTxtQKey);
-        System.out.println(writableTxt);
+//        System.out.println(writableTxtQKey);
+//        System.out.println(writableTxt);
     }
 
 
