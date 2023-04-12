@@ -44,6 +44,8 @@ class HashFunction {
             }
 
             writableTxt += String.format("%-7d\t| %-10s\t| %-7d\n", i, tmpWord, hashKey);
+
+            writableTxtLine +=  String.format("%-7d\t| %-7s\n", i, tmpWord);
 //            quadraticHashFunction(tmpWord,hashKey,i, word.length);
 
 
@@ -55,13 +57,13 @@ class HashFunction {
 
              writableTxtQKey += String.format("%-7d\t| %-10s\t| %-7d\t | %-7d\t| %-10s\n", i,word[i], hashKey, probes,quadraticHashKey);
 
-             writableTxtLine +=  String.format("%-7d\t| %-7d\n", i, tmpWord);
+
 
 
         }
         obj.fileWriter(writableTxt, "wordsHK7");
         obj.fileWriter(writableTxtQKey, "wordsQHK7");
-        obj.fileWriter(writableTxtQKey, "nonCollisionHashTable");
+        obj.fileWriter(writableTxtLine, "nonCollisionHashTable");
 
 
 
