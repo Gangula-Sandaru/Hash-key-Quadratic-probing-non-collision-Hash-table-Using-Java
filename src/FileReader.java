@@ -8,8 +8,6 @@ class FileReader {
     FileReader(String path){
         this.path = path;
     }
-
-
     String Read_file() {
         // store file data
         String file_data = "";
