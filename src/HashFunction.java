@@ -1,9 +1,11 @@
+import java.util.Arrays;
 import java.util.HashMap;
 
 class HashFunction {
     private String[] word;
     private String writableTxt = "Index\t| Character\t| Hash Key\n";
     private String writableTxtQKey = "Index\t| Character\t| Hash Key\t | New Hash Key \t | Q Hash Key \n";
+    int quadraticHashKey, probes;
     writeFile obj = new writeFile();
 
     HashFunction(String[] words){
@@ -41,22 +43,22 @@ class HashFunction {
             }
 
             writableTxt += String.format("%-7d\t| %-10s\t| %-7d\n", i, tmpWord, hashKey);
-            quadraticHashFunction(tmpWord,hashKey,i, word.length);
+//            quadraticHashFunction(tmpWord,hashKey,i, word.length);
+
+
+            final int c1 = 1, c2 = 1, c3 = 0;
+
+
+             probes = (c1 * i * i) + (c2 * i) + c3;
+             quadraticHashKey = (hashKey + probes) % word.length;
+
+             writableTxtQKey += String.format("%-7d\t| %-10s\t| %-7d\t | %-7d\t| %-10s\n", i,word[i], hashKey, probes,quadraticHashKey);
 
         }
         obj.fileWriter(writableTxt, "wordsHK7");
+        obj.fileWriter(writableTxtQKey, "wordsQHK7");
+        System.out.println(writableTxtQKey);
+        System.out.println(writableTxt);
     }
 
-    private void quadraticHashFunction(String word, int hashKey, int i, int tableSize){
-        int quadraticHashKey, probes;
-        final int c1 = 1, c2 = 1, c3 = 0;
-
-         probes = (c1 * i * i) + (c2 * i) + c3;
-         quadraticHashKey = (hashKey + probes) % tableSize;
-
-         writableTxtQKey += String.format("%-7d\t| %-10s\t| %-7d\t | %-7d\t| %-10s\n", i, word, hashKey, probes,quadraticHashKey);
-
-//         System.out.println(i + " hash key " + hashKey + "  Q key: " + quadraticHashKey);
-        obj.fileWriter(writableTxtQKey, "wordsQHK");
-    }
 }
