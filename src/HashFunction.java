@@ -27,27 +27,41 @@ class HashFunction {
             englishAlphaList.put(c, count);
             count++;
         }
+
+        // read word by word.
         for(int i = 0; i < this.word.length; i++){
             String tmpWord = word[i];
             int hashKey = 0;
+            // read latter by latter
             for(int j = 0; j < tmpWord.length(); j++){
+                // take each value from the hash map that corresponding to each latter.
                 char tmpChar = tmpWord.charAt(j);
 //                System.out.print(tmpChar + ",");
+                // add up all values in to one.
                 hashKey +=  englishAlphaList.get(tmpChar);
             }
 
+            // format the table according to the giving criteria
+            // task o1
             writableTxt += String.format("%-7d\t| %-10s\t| %-7d\n", i, tmpWord, hashKey);
 
+
+            // task o3
             writableTxtLine +=  String.format("%-7d\t| %-7s\n", i, tmpWord);
-            // second task
+
+
+            // task 02
             final int c1 = 1, c2 = 1, c3 = 0;
+            // new hash key.
+             probes = (c1 * i * i) + (c2 * i) + c3; // according to the giving question.
 
+             quadraticHashKey = (hashKey + probes) % (word.length * 2);
 
-             probes = (c1 * i * i) + (c2 * i) + c3;
-             quadraticHashKey = (hashKey + probes) % word.length;
-
+             // format the table according to the question.
              writableTxtQKey += String.format("%-7d\t| %-10s\t| %-7d\t | %-7d\t| %-10s\n", i,word[i], hashKey, probes,quadraticHashKey);
         }
+
+        // sent data to the file functions for the write.
         obj.fileWriter(writableTxt, "wordsHK7"); // first task
         obj.fileWriter(writableTxtQKey, "wordsQHK7"); // second task
         obj.fileWriter(writableTxtLine, "nonCollisionHashTable"); // third task
